@@ -25,13 +25,13 @@ class User(DeclarativeBase, BaseModel):
     @validates('USERNAME')
     def validate_name(self, key, value):
         is_valid, edited_username = self.check_username(value)
-        if is_valid:
+        if not is_valid:
             raise HTTPException(404, f'invalid username. try: {edited_username}')
         return value
 
     @classmethod
     def check_username(cls, username: str) -> tuple[bool, str]:
-        username_regex = r'[^a-zA-Z._\s]'
+        username_regex = r'[^a-zA-Z0-9._\s]'
         new_username = re.sub(username_regex, '', username.strip())
         is_valid = False if re.findall(username_regex, username) else True
 

@@ -14,5 +14,11 @@ class DatabaseSettings(BaseSettings):
     DATABASE_RESET: bool = False
 
 
+class JWTSettings(BaseSettings):
+    SECRET_JEY: str = 'ea5cb8ff0abf6b4ca0080069daaeada0'
+    EXPIRED_MINUTES: int = 60
+
+
 api = APISettings()
 database = DatabaseSettings()
+jwt = JWTSettings()
