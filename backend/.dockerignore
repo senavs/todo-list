@@ -1,0 +1,3 @@
+.dockerignore
+.flake8
+pep8.sh
