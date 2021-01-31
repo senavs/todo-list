@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
-from .controllers.errorhandler import ErrorHandler
+from .database.core import Bootloader
+from .modules.errorhandler import ErrorHandler
 from .routes import router
 
 __version__ = '0.0.1'
@@ -12,3 +13,4 @@ app = FastAPI(title='TO DO list API',
 app.include_router(router)
 
 ErrorHandler(app)
+Bootloader()
