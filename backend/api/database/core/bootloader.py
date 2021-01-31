@@ -5,7 +5,7 @@ from .. import DeclarativeBase, engine
 class Bootloader:
 
     def __init__(self, *tables: str, reset: bool = False):
-        self.setup(*tables, reset)
+        self.setup(*tables, reset=reset)
 
     @classmethod
     def setup(cls, *tables: str, reset: bool = False):

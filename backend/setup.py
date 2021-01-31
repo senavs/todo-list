@@ -11,7 +11,9 @@ run_requirements = [
     'uvicorn==0.13.3',
     'gunicorn==20.0.4',
     'SQLAlchemy==1.3.22',
-    'mysqlclient==2.0.3'
+    'mysqlclient==2.0.3',
+    'pyjwt==2.0.1',
+    'bcrypt==3.2.0'
 ]
 
 with io.open('./api/__init__.py', encoding='utf8') as version_f:
