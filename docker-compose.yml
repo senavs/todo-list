@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+
+  mysql:
+    image: mysql:5.7
+    container_name: todo-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: 'toor'
+      MYSQL_DATABASE: 'TODO'
+
+  api:
+    image: todo-api
+    container_name: todo-api
+    restart: unless-stopped
+    command: 'python3 -m api'
+    build:
+      context: ./backend
+    environment:
+      API_RELOAD: 'true'
+      API_DEBUG: 'true'
+    volumes:
+      - ./backend/api:/code/backend/api
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysql
