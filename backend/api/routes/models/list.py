@@ -19,3 +19,12 @@ class CreateRequest(BaseModel):
 
 class CreateResponse(BaseModel):
     list: List
+
+
+class UpdateRequest(BaseModel):
+    title: str = None
+    description: str = None
+
+
+class UpdateResponse(BaseModel):
+    list: List
