@@ -56,8 +56,8 @@ def register(username: str, password: str):
 
         user = User(USERNAME=username, PASSWORD=password)
         user.insert(conn)
-        user = user.to_dict()
-    return user
+        result = user.to_dict()
+    return result
 
 
 def login_required(authentication: str = Header(..., alias='Authenticate')) -> [str, dict]:
