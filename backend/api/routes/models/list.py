@@ -8,6 +8,10 @@ class List(BaseModel):
     description: str = None
 
 
+class SearchResponse(BaseModel):
+    list: List
+
+
 class ListResponse(BaseModel):
     lists: list[List]
 

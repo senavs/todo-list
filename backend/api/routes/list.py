@@ -1,10 +1,17 @@
 from fastapi import APIRouter, Depends
 
-from .models.list import CreateRequest, CreateResponse, ListResponse, UpdateResponse, UpdateRequest
-from ..controllers.list import create, list_, update, delete
+from .models.list import CreateRequest, CreateResponse, ListResponse, UpdateResponse, UpdateRequest, SearchResponse
+from ..controllers.list import create, list_, update, delete, search
 from ..controllers.auth import login_required
 
 router = APIRouter()
+
+
+@router.get('/{id_list}/search', status_code=200, response_model=SearchResponse)
+def router_search(id_list: int, auth: str = Depends(login_required)):
+    _, user = auth
+    result = search(id_user=user['id_user'], id_list=id_list)
+    return {'list': result}
 
 
 @router.get('/list', status_code=200, response_model=ListResponse)
