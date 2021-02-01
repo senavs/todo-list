@@ -27,3 +27,10 @@ def update(id_user: int, id_list: int, title: str = None, description: str = Non
         list_.update(conn, TITLE=title, DESCRIPTION=description)
         result = list_.to_dict(exclude=['CREATE_AT', 'UPDATED_AT'])
     return result
+
+
+def delete(id_user: int, id_list: int):
+    with ClientConnection() as conn:
+        if not (list_ := conn.query(List).filter_by(ID_USER=id_user, ID_LIST=id_list).first()):
+            raise HTTPException(404, 'list not found')
+        list_.delete(conn)
