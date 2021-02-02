@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from . import index, auth, list, task
+from . import auth, index, list, task
 
 router = APIRouter()
 

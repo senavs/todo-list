@@ -1,11 +1,10 @@
-from fastapi import Header
 from datetime import datetime, timedelta
 
 import jwt
-from fastapi import HTTPException
+from fastapi import Header, HTTPException
 
 from .. import settings
-from ..database import ClientConnection, User, TokenBlacklist
+from ..database import ClientConnection, TokenBlacklist, User
 
 
 def encode(user: dict) -> str:
