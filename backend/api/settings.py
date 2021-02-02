@@ -10,7 +10,7 @@ class APISettings(BaseSettings):
 
 
 class DatabaseSettings(BaseSettings):
-    DATABASE_URI: str = ''
+    DATABASE_URI: str = 'mysql://root:toor@mysql:3306/TODO'
     DATABASE_RESET: bool = False
 
 
