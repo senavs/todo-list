@@ -18,8 +18,8 @@ services:
     build:
       context: ./backend
     environment:
-      API_RELOAD: 'true'
-      API_DEBUG: 'true'
+      API_RELOAD: "true"
+      API_DEBUG: "true"
     volumes:
       - ./backend/api:/code/backend/api
     ports:

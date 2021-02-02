@@ -9,7 +9,7 @@ class BaseModel:
         super().__init__(**kwargs)
 
     @classmethod
-    def get(cls, connection: ClientConnection, *, id: int) -> 'BaseModel':
+    def get(cls, connection: ClientConnection, id: int) -> 'BaseModel':
         return connection.query(cls).get(id)
 
     def insert(self, connection: ClientConnection, *, commit: bool = True):
