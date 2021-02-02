@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 
+from ..controllers.auth import login, login_required, logout, register
 from .models.auth import LoginRequest, LoginResponse, RegisterRequest, RegisterResponse, ValidateResponse
-from ..controllers.auth import login_required, login, logout, register
 
 router = APIRouter()
 
@@ -27,6 +27,6 @@ def router_register(body: RegisterRequest):
 
 
 @router.post('/validate', status_code=200, response_model=ValidateResponse)
-def router_login(auth: str = Depends(login_required)):
+def router_validate(auth: str = Depends(login_required)):
     token, user = auth
     return {'user': user, 'token': token}

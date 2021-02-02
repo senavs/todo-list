@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends
 
-from .models.task import CreateRequest, CreateResponse, ListResponse, UpdateResponse, UpdateRequest, SearchResponse
-from ..controllers.task import create, list_, update, delete, search
 from ..controllers.auth import login_required
+from ..controllers.task import create, delete, list_, search, update
+from .models.task import CreateRequest, CreateResponse, ListResponse, SearchResponse, UpdateRequest, UpdateResponse
 
 router = APIRouter()
 
@@ -36,7 +36,7 @@ def router_update(id_list: int, id_task: int, body: UpdateRequest, auth: str = D
 
 
 @router.delete('/{id_list}/tasks/{id_task}/delete', status_code=200)
-def router_update(id_list: int, id_task: int, auth: str = Depends(login_required)):
+def router_delete(id_list: int, id_task: int, auth: str = Depends(login_required)):
     _, user = auth
     delete(id_list=id_list, id_task=id_task, id_user=user['id_user'])
     return {}
