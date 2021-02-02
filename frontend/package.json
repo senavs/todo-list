@@ -1,0 +1,19 @@
+{
+  "name": "todo-frontend",
+  "version": "2.0.0",
+  "description": "To do list WEB application with Python, NodeJS and React.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/senavs/todo-list.git"
+  },
+  "author": "Matheus Sena Vasconcelos",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/senavs/todo-list/issues"
+  },
+  "homepage": "https://github.com/senavs/todo-list#readme"
+}
