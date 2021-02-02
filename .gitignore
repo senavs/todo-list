@@ -228,3 +228,6 @@ Thumbs.db
 
 # VSCode
 .vscode/
+
+# mysql workbench
+*bak
