@@ -5,7 +5,7 @@ import AuthProvider from './contexts/auth'
 import PrivateRoute from './routes/private'
 import Home from './components/home'
 import Login from './components/login'
-import List from './components/list'
+import Lists from './components/lists'
 import NavBar from './components/navbar';
 
 
@@ -17,7 +17,7 @@ const App = () => {
           <NavBar>
             <Route exact={true} path='/' component={Home} />
             <Route exact={true} path='/login' component={Login} />
-            <PrivateRoute exact={true} path='/list' component={List} />
+            <PrivateRoute exact={true} path='/lists' component={Lists} />
           </NavBar>
         </AuthProvider>
       </Switch>
