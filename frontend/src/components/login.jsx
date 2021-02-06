@@ -1,21 +1,18 @@
 import React, { useContext, useState } from 'react'
 import { Redirect, useHistory } from 'react-router-dom'
 
-import Home from './home'
 import { AuthContext } from '../contexts/auth'
-import useStorage from '../utils/storage'
 import AuthService from '../services/auth'
 
 
 const Login = () => {
   // context
-  const { auth } = useContext(AuthContext)
+  const { auth, setAuth } = useContext(AuthContext)
 
   // events
   const history = useHistory()
   const [formdata, setFormData] = useState(() => ({ username: '', password: '' }))
   const [errorForm, setErrorForm] = useState('')
-  const [, setAuthStorage] = useStorage('auth')
 
   // functions/handlers
   const onChange = (e) => {
@@ -33,7 +30,7 @@ const Login = () => {
     AuthService.login(username, password)
       .then((suc) => {
         setErrorForm('')
-        setAuthStorage(suc)
+        setAuth(suc)
         return history.push('/')
       })
       .catch((err) => {
@@ -48,7 +45,7 @@ const Login = () => {
     )
   } else {
     return (
-      <div className="col col-6 m-auto">
+      <div className="col col-6 mx-auto">
         {/* Error popup message */}
         {
           errorForm && <div className="alert alert-danger alert-dismissible fade show" role="alert">
@@ -67,9 +64,9 @@ const Login = () => {
           </div>
           <div className="form-group">
             <label>Password</label>
-            <input className="form-control" placeholder="Password" type="password" name="password" value={formdata.password} onChange={onChange} required />
+            <input className="form-control" placeholder="Enter your password" type="password" name="password" value={formdata.password} onChange={onChange} required />
           </div>
-          <button type="submit" className="btn btn-primary" >Login</button>
+          <button type="submit" className="btn btn-warning" >Login</button>
         </form>
       </div>
     )

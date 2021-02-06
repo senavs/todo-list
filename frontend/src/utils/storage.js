@@ -20,7 +20,8 @@ const useStorage = (key) => {
   const [state, setState] = useState(Storage.get(key))
 
   const setter = (value) => {
-    return Storage.set(key, value)
+    Storage.set(key, value)
+    setState(Storage.get(key))
   }
 
   const deleter = () => {

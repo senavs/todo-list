@@ -14,10 +14,13 @@ export default class AuthService {
     }
   }
 
-  static logout(token) {
-    return axios.post(config.url.auth.logout, null, { headers: { Authenticate: `Bearer ${token}` } })
-      .then(() => true)
-      .catch(() => false)
+  static async logout(token) {
+    try {
+      const response = await axios.post(config.url.auth.logout, null, { headers: { Authenticate: `Bearer ${token}` } })
+      return true ? response.request.status : false
+    } catch (error) {
+      return false
+    }
   }
 
   static async validate(token) {
