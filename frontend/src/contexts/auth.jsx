@@ -1,4 +1,4 @@
-import Rect, { createContext, useState, useEffect } from 'react'
+import Rect, { createContext, useEffect } from 'react'
 
 import AuthService from '../services/auth'
 import useStorage from '../utils/storage'

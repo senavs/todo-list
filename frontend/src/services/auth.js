@@ -5,10 +5,13 @@ import { config } from '../config/config.js'
 
 export default class AuthService {
 
-  static login(username, password) {
-    return axios.post(config.url.auth.login, { username, password })
-      .then(response => response.data)
-      .catch(error => error.response.data)
+  static async login(username, password) {
+    try {
+      const response = await axios.post(config.url.auth.login, { username, password })
+      return response.data
+    } catch (error) {
+      throw error.response.data
+    }
   }
 
   static logout(token) {
@@ -18,12 +21,11 @@ export default class AuthService {
   }
 
   static async validate(token) {
-    const response = axios.post(config.url.auth.validate, null, { headers: { Authenticate: `Bearer ${token}` } })
-
     try {
-      return response.then(response => response.data)
-    } catch {
-      throw response.catch(error => error.response.data)
+      const response = await axios.post(config.url.auth.validate, null, { headers: { Authenticate: `Bearer ${token}` } })
+      return response.data
+    } catch (error) {
+      return error.response.data
     }
   }
 
