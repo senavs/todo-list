@@ -39,7 +39,7 @@ const ListItem = ({ idList, title, description }) => {
           <h6 className="card-subtitle mb-2 text-muted">Total task: X</h6>
           {/* <h6 className="card-subtitle mb-2 text-muted">Total task: X</h6> */}
           <p className="card-text">{description}</p>
-          <a href={`/list/${idList}`} className="card-link text-primary">Access</a>
+          <a href={`/lists/${idList}`} className="card-link text-primary">Access</a>
           <a href="#" className="card-link text-danger">Delete</a>
         </div>
       </div>

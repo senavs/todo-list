@@ -7,6 +7,9 @@ export const config = {
     },
     lists: {
       list: process.env.URL_LIST_LIST || 'http://0.0.0.0:8080/lists/list'
+    },
+    tasks: {
+      list: process.env.URL_TASKS_LIST || 'http://0.0.0.0:8080/lists/{0}/tasks/list'
     }
   }
 }
